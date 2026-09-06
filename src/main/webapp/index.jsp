@@ -3,41 +3,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>NexusShop · User‑Friendly UI</title>
+    <title>NexusShop · Blue Edition</title>
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 
     <style>
-        /* ========== ROOT – softer, warmer palette ========== */
+        /* ========== ROOT – cool blue palette ========== */
         :root {
-            --bg: #f8f7f4;
+            --bg: #f4f7fc;
             --bg-card: #ffffff;
-            --primary: #1e2b2f;
-            --primary-light: #2f4046;
-            --accent: #d87c5f;
-            --accent-light: #f3ddd4;
-            --accent-dark: #be6247;
-            --muted: #5f6b72;
-            --muted-light: #9aabb5;
-            --surface: #f0eeea;
-            --success: #3b8b7a;
-            --warning: #eac17a;
+            --primary: #152b3c;
+            --primary-light: #1f3f54;
+            --accent: #2a7de1;          /* primary blue */
+            --accent-light: #c7ddf9;     /* light blue */
+            --accent-dark: #1c5ea8;      /* deeper blue */
+            --muted: #4d6377;
+            --muted-light: #889db3;
+            --surface: #e9eff6;
+            --success: #2a9d8f;
+            --warning: #f4c77a;
             --radius: 20px;
             --radius-sm: 12px;
-            --shadow: 0 6px 28px rgba(30, 43, 47, 0.05);
-            --shadow-hover: 0 16px 44px rgba(30, 43, 47, 0.10);
+            --shadow: 0 6px 28px rgba(21, 43, 60, 0.06);
+            --shadow-hover: 0 16px 44px rgba(21, 43, 60, 0.12);
             --transition: 0.25s cubic-bezier(0.2, 0, 0, 1);
             --container: 1240px;
         }
 
         /* ========== RESET & BASE ========== */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -60,7 +56,7 @@
         .muted { color: var(--muted); }
         .text-center { text-align: center; }
 
-        /* ========== BUTTONS – friendlier ========== */
+        /* ========== BUTTONS – blue accent ========== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -83,7 +79,7 @@
             background: var(--accent-dark);
             border-color: var(--accent-dark);
             transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(216, 124, 95, 0.3);
+            box-shadow: 0 12px 28px rgba(42, 125, 225, 0.35);
         }
         .btn-secondary {
             background: var(--primary);
@@ -94,12 +90,12 @@
             background: var(--primary-light);
             border-color: var(--primary-light);
             transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(30, 43, 47, 0.2);
+            box-shadow: 0 12px 28px rgba(21, 43, 60, 0.2);
         }
         .btn-outline {
             background: transparent;
             color: var(--primary);
-            border-color: rgba(30, 43, 47, 0.15);
+            border-color: rgba(21, 43, 60, 0.15);
         }
         .btn-outline:hover {
             background: var(--primary);
@@ -122,7 +118,7 @@
             font-size: 13px;
         }
 
-        /* ========== HEADER – cleaner, softer ========== */
+        /* ========== HEADER ========== */
         header {
             position: sticky;
             top: 0;
@@ -130,7 +126,7 @@
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(30, 43, 47, 0.04);
+            border-bottom: 1px solid rgba(21, 43, 60, 0.04);
         }
         .header-inner {
             display: flex;
@@ -140,7 +136,6 @@
             padding: 10px 0;
             min-height: 64px;
         }
-
         .brand {
             display: flex;
             align-items: center;
@@ -199,10 +194,7 @@
             background: var(--surface);
             color: var(--primary);
         }
-
-        .cart-wrap {
-            position: relative;
-        }
+        .cart-wrap { position: relative; }
         .cart-count {
             position: absolute;
             top: -2px;
@@ -218,7 +210,6 @@
             place-items: center;
             border: 2px solid #fff;
         }
-
         .search-wrap {
             display: flex;
             align-items: center;
@@ -232,7 +223,7 @@
         }
         .search-wrap:focus-within {
             border-color: var(--accent-light);
-            box-shadow: 0 0 0 6px rgba(216, 124, 95, 0.08);
+            box-shadow: 0 0 0 6px rgba(42, 125, 225, 0.08);
         }
         .search-wrap input {
             border: 0;
@@ -243,18 +234,14 @@
             font-size: 14px;
             color: var(--primary);
         }
-        .search-wrap input::placeholder {
-            color: var(--muted-light);
-        }
+        .search-wrap input::placeholder { color: var(--muted-light); }
         .search-wrap button {
             padding: 8px 0 8px 10px;
             color: var(--muted);
             font-size: 15px;
             transition: var(--transition);
         }
-        .search-wrap button:hover {
-            color: var(--accent);
-        }
+        .search-wrap button:hover { color: var(--accent); }
 
         .mobile-toggle {
             display: none;
@@ -271,7 +258,7 @@
         #mobileMenu {
             display: none;
             background: #fff;
-            border-top: 1px solid rgba(30,43,47,0.04);
+            border-top: 1px solid rgba(21,43,60,0.04);
             padding: 10px 0 18px;
         }
         #mobileMenu ul {
@@ -293,7 +280,7 @@
         #mobileMenu ul li a:hover { background: var(--surface); }
         #mobileMenu ul li a i { width: 24px; color: var(--muted); }
 
-        /* ========== HERO – softer, friendlier ========== */
+        /* ========== HERO – blue gradient ========== */
         .hero {
             position: relative;
             display: flex;
@@ -303,14 +290,14 @@
             border-radius: var(--radius);
             overflow: hidden;
             margin: 20px 24px 0;
-            background: linear-gradient(135deg, #1e2b2f 0%, #2f4046 100%);
+            background: linear-gradient(135deg, #152b3c 0%, #1f3f54 100%);
         }
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
             background: url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-            opacity: 0.25;
+            opacity: 0.20;
             z-index: 0;
         }
         .hero .container { position: relative; z-index: 1; }
@@ -318,8 +305,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(216, 124, 95, 0.18);
-            color: #f3ddd4;
+            background: rgba(42, 125, 225, 0.2);
+            color: #c7ddf9;
             padding: 6px 20px;
             border-radius: 40px;
             font-weight: 600;
@@ -351,9 +338,7 @@
         }
 
         /* ========== SECTION ========== */
-        .section {
-            padding: 52px 0;
-        }
+        .section { padding: 52px 0; }
         .section-header {
             display: flex;
             align-items: flex-end;
@@ -391,7 +376,7 @@
             color: #fff;
         }
 
-        /* ========== CATEGORIES – more playful ========== */
+        /* ========== CATEGORIES ========== */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -411,7 +396,7 @@
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent-light);
-            background: #fffcfb;
+            background: #fafdff;
         }
         .cat-card .icon-wrap {
             width: 60px;
@@ -430,17 +415,14 @@
             color: #fff;
             transform: scale(0.95);
         }
-        .cat-card h4 {
-            font-size: 15px;
-            font-weight: 600;
-        }
+        .cat-card h4 { font-size: 15px; font-weight: 600; }
         .cat-card .count {
             font-size: 13px;
             color: var(--muted);
             margin-top: 4px;
         }
 
-        /* ========== PRODUCTS – clean, airy ========== */
+        /* ========== PRODUCTS ========== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -555,7 +537,7 @@
             align-items: center;
             gap: 4px;
             font-size: 13px;
-            color: #eac17a;
+            color: #f4c77a;
         }
         .product-card .body .rating span {
             color: var(--muted);
@@ -588,7 +570,7 @@
             background: var(--success);
         }
 
-        /* ========== DEAL – friendlier layout ========== */
+        /* ========== DEAL ========== */
         .deal-wrap {
             display: flex;
             gap: 0;
@@ -656,9 +638,8 @@
             color: var(--muted);
             margin: 6px 0 18px;
         }
-        .deal-wrap .deal-content .stock strong {
-            color: var(--accent);
-        }
+        .deal-wrap .deal-content .stock strong { color: var(--accent); }
+
         .timer-grid {
             display: flex;
             gap: 14px;
@@ -694,9 +675,7 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
-        .testimonials-scroll::-webkit-scrollbar {
-            height: 5px;
-        }
+        .testimonials-scroll::-webkit-scrollbar { height: 5px; }
         .testimonials-scroll::-webkit-scrollbar-thumb {
             background: var(--accent-light);
             border-radius: 40px;
@@ -710,11 +689,9 @@
             scroll-snap-align: start;
             transition: var(--transition);
         }
-        .testimonial-card:hover {
-            box-shadow: var(--shadow-hover);
-        }
+        .testimonial-card:hover { box-shadow: var(--shadow-hover); }
         .testimonial-card .stars {
-            color: #eac17a;
+            color: #f4c77a;
             font-size: 16px;
             letter-spacing: 2px;
             margin-bottom: 12px;
@@ -739,18 +716,15 @@
             background: var(--surface);
             border: 2px solid var(--accent-light);
         }
-        .testimonial-card .author .name {
-            font-weight: 600;
-            font-size: 14px;
-        }
+        .testimonial-card .author .name { font-weight: 600; font-size: 14px; }
         .testimonial-card .author .role {
             font-size: 13px;
             color: var(--muted);
         }
 
-        /* ========== NEWSLETTER – friendly ========== */
+        /* ========== NEWSLETTER ========== */
         .newsletter-wrap {
-            background: linear-gradient(135deg, #1e2b2f 0%, #2f4046 100%);
+            background: linear-gradient(135deg, #152b3c 0%, #1f3f54 100%);
             border-radius: var(--radius);
             padding: 48px 56px;
             color: #fff;
@@ -816,7 +790,7 @@
         footer {
             margin-top: 16px;
             padding: 44px 0 28px;
-            border-top: 1px solid rgba(30,43,47,0.04);
+            border-top: 1px solid rgba(21,43,60,0.04);
         }
         .footer-grid {
             display: grid;
@@ -868,18 +842,16 @@
             font-size: 14px;
             transition: var(--transition);
         }
-        .footer-grid .col ul li a:hover {
-            color: var(--accent);
-        }
+        .footer-grid .col ul li a:hover { color: var(--accent); }
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(30,43,47,0.04);
+            border-top: 1px solid rgba(21,43,60,0.04);
             color: var(--muted-light);
             font-size: 13px;
         }
 
-        /* ========== RESPONSIVE – fine‑tuned ========== */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 1200px) {
             .products-grid { grid-template-columns: repeat(3,1fr); }
             .categories-grid { grid-template-columns: repeat(3,1fr); }
@@ -983,4 +955,12 @@
                         </button>
                         <span class="cart-count" id="cartCount">0</span>
                     </div>
-               
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu">
+            <div class="container">
+                <ul>
+                    <
